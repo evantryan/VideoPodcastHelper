@@ -1,4 +1,4 @@
-# VideoPodcastEditHelper
+# VideoPodcastHelper
 
 An addon to make editing a 2 person video podcast easier in VSE
 
@@ -43,8 +43,8 @@ to run the code directly. execute the following in blender
 
     import sys
     sys.path.insert(0, '/path/to/parent/directory')
-    import VideoPodcastEditHelper
-    VideoPodcastEditHelper.register()
+    import VideoPodcastHelper
+    VideoPodcastHelper.register()
 
 
 ## moving forward

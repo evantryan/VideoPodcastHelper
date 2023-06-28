@@ -3,7 +3,7 @@ from . import strip
 from . import ui
 
 bl_info = {
-    "name": "VideoPodcastEditHelper",
+    "name": "VideoPodcastHelper",
     "author": "Evan Ryan",
     "version": (0, 0, 0),
     "blender": (3, 3, 0),
