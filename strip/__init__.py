@@ -1,5 +1,6 @@
 import bpy
 from .strip_properties import  StripModeSettings
+from ..core import app_handlers
 
 classes = [
     StripModeSettings,
@@ -11,6 +12,9 @@ modes = [
         ("B", "b", "", 3),
         ("C", "c", "", 4),
     ]
+
+def enum_update(enum, context):
+    app_handlers.update_helper_modes(context.scene, depsgraph=None)
     
 
 def register():
@@ -18,11 +22,10 @@ def register():
     for cls in classes:
         register_class(cls)
         
-    # bpy.types.Sequence.video_podcast_helper = bpy.props.PointerProperty(type=StripModeSettings)
-    bpy.types.Sequence.video_podcast_helper_modes = bpy.props.EnumProperty(items=modes, options={'ANIMATABLE'},)
+    bpy.types.Sequence.video_podcast_helper_modes = bpy.props.EnumProperty(items=modes, options={'ANIMATABLE'}, update=enum_update)
     
 def unregister():
-    del bpy.types.Sequence.video_podcast_helper
+    del bpy.types.Sequence.video_podcast_helper_modes
 
     from bpy.utils import unregister_class
     for cls in reversed(classes):
